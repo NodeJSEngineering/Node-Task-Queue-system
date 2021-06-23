@@ -1,0 +1,19 @@
+{
+  "name": "pro",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "_comment": "type: module configures the project to use ES6 modules.",
+  "scripts": {
+    "send": "node ./send.js",
+    "receive": "node ./receive.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@craigbuckler/queue-mongodb": "^1.1.1"
+  }
+}
