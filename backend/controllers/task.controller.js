@@ -5,16 +5,18 @@ const Task = require("../models/task.model");
 
 //create new Task
 exports.newTask = asyncHandler(async(req,res)=>{
-    const {name} = req.body;
-    if(!name){
+    const {name , user , description} = req.body;
+    if(!(name && user && description)){
         throw new ApiError(400 , "Task name is required");
     }
-    const existTask = await Task.findOne({name});
+    const existTask = await Task.findOne({$and:[{name} , {user}]});
     if(existTask){
         throw new ApiError(400 , "Task already exist");
     }
     const task = await Task.create({
-        name
+        name,
+        user,
+        description
     })
     if(!task){
         throw new ApiError(500 , "task is not created");
