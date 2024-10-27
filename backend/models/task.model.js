@@ -16,6 +16,11 @@ const taskSchema = new mongoose.Schema({
         enum:["Opened" , "Assigned" , "Completed"],
         default:"Opened"
     },
+    label:{
+        type:mongoose.Schema.Types.ObjectId,
+        ref:"Label",
+        required:true
+    },
     description:{
         type:String,
         required:true,

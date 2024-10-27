@@ -5,8 +5,8 @@ const Task = require("../models/task.model");
 
 //create new Task
 exports.newTask = asyncHandler(async(req,res)=>{
-    const {name , user , description} = req.body;
-    if(!(name && user && description)){
+    const {name , user , description , label} = req.body;
+    if(!(name && user && description && label)){
         throw new ApiError(400 , "Task name is required");
     }
     const existTask = await Task.findOne({$and:[{name} , {user}]});
@@ -16,7 +16,8 @@ exports.newTask = asyncHandler(async(req,res)=>{
     const task = await Task.create({
         name,
         user,
-        description
+        description,
+        label
     })
     if(!task){
         throw new ApiError(500 , "task is not created");
