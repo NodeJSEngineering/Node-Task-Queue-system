@@ -20,7 +20,7 @@ exports.newLabel = asyncHandler(async(req,res)=>{
         throw new ApiError(500 , "label is not created");
     }
     return res.status(201).json(
-        new ApiResponse("Label s=is created" , label , 201)
+        new ApiResponse("Label is created" , label , 201)
     )
 })
 
@@ -62,7 +62,7 @@ exports.updateLabel = asyncHandler(async(req,res)=>{
 })
 
 //delete Label
-exports.deleteLabel = asyncHandler(async()=>{
+exports.deleteLabel = asyncHandler(async(req,res)=>{
     const label = await Label.findById(req.params.labelId);
     if(!label){
         throw new ApiError(404 , "label is not found");

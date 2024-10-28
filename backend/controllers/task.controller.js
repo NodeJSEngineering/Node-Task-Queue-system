@@ -7,7 +7,7 @@ const Task = require("../models/task.model");
 exports.newTask = asyncHandler(async(req,res)=>{
     const {name , user , description , label} = req.body;
     if(!(name && user && description && label)){
-        throw new ApiError(400 , "Task name is required");
+        throw new ApiError(400 , "all fields are required");
     }
     const existTask = await Task.findOne({$and:[{name} , {user}]});
     if(existTask){
@@ -65,7 +65,7 @@ exports.updateTask = asyncHandler(async(req,res)=>{
 })
 
 //delete Task
-exports.deleteTask = asyncHandler(async()=>{
+exports.deleteTask = asyncHandler(async(req,res)=>{
     const task = await Task.findById(req.params.taskId);
     if(!task){
         throw new ApiError(404 , "task is not found");
