@@ -12,6 +12,8 @@ import TaskQueue from './pages/AddTask.jsx'
 import AllTasks from './pages/Taskpage.jsx'
 import NewTask from './pages/NewTask.jsx'
 import TaskDetail from './pages/TaskDetail.jsx'
+import PrivateRoute from './utils/UserAuthorization.jsx'
+import MyTasks from './pages/MyTasks.jsx'
 
 
 const router = createBrowserRouter([
@@ -34,15 +36,19 @@ const router = createBrowserRouter([
       },
       {
         path:"queuetask",
-        element:<TaskQueue/>
+        element:<PrivateRoute><TaskQueue/></PrivateRoute>
       },
       {
         path:"newtask",
-        element:<NewTask/>
+        element:<PrivateRoute><NewTask/></PrivateRoute>
       },
       {
         path:"taskDetail/:taskId",
-        element:<TaskDetail/>
+        element:<PrivateRoute><TaskDetail/></PrivateRoute>
+      },
+      {
+        path:"mytask",
+        element:<PrivateRoute><MyTasks/></PrivateRoute>
       }
     ]
   },

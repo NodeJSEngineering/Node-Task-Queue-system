@@ -3,7 +3,10 @@ import { Link } from "react-router-dom";
 import { baseurl, getAndDeleteReq } from "../utils/apiCalls";
 
 export default function AllTasks(){
+    const [labels , setLabels] = useState([]);
     const [tasks , setTasks] = useState([]);
+    const [selectedLabelId , setSelectedLabelId] = useState("");
+    console.log("selected label is! " , selectedLabelId);
     useEffect(()=>{
         const getAllTasks = async()=>{
             try {
@@ -15,7 +18,28 @@ export default function AllTasks(){
         }
         getAllTasks();
     } , [])
-    
+
+    useEffect(()=>{
+        const getAllLabels = async()=>{
+            try {
+                const response = await getAndDeleteReq(`${baseurl}/label/getalllabels`);
+                setLabels(response.data);
+                return response.data;
+            } catch (error) {
+                console.log("error from get All Labels! " , error);
+            }
+        }
+        getAllLabels();
+    } , [])
+
+    const handleQuery = async()=>{
+        try {
+            const response = await getAndDeleteReq(`${baseurl}/task/getalllabeltasks?selectLabelId=${selectedLabelId}` , "get");
+            return response.data;
+        } catch (error) {
+            console.log("error from labeled request! " , error);
+        }
+    }
     return (
         <section className="">
             {/* search---bar */}
@@ -31,9 +55,16 @@ export default function AllTasks(){
                     <h2 className="text-center font-bold text-2xl">Filters</h2>
                     <div>
                         <h5 className="text-lg font-semibold ">Label</h5>
-                        <select className="w-full px-6 py-4 outline-none bg-slate-700">
-                            <option>Labels</option>
+                        <select className="w-full px-6 py-4 outline-none bg-slate-700" value={selectedLabelId} 
+                        onChange={(e)=>setSelectedLabelId(e.target.value)}>
+                            {
+                                labels.map((label)=>(
+                                    <option value={label._id} key={label._id}>{label.name}</option>
+                                ))
+                            }
                         </select>
+                        <button className="w-full bg-orange-600 p-3 rounded text-xl mt-2 text-white 
+                        hover:bg-orange-700 transition-colors" onClick={handleQuery}>Filter</button>
                     </div>
                 </aside>
 

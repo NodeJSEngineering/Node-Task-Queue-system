@@ -11,7 +11,7 @@ export default function Navbar(){
                 user ? (
                     <div className="text-white-700">
                         <ul className="md:flex hidden font-semibold">
-                            <Link to={"/application"}><li 
+                            <Link to={"/mytask"}><li 
                             className="mx-[10px] cursor-pointer hover:border-b-2 hover:bg-slate-700 hover:rounded hover:px-2 px-2 py-2">MyTasks</li></Link>
                             <Link to={"/newtask"}><li 
                             className="mx-[10px] cursor-pointer hover:border-b-2 hover:bg-slate-700 hover:rounded hover:px-2 px-2 

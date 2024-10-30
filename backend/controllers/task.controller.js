@@ -49,6 +49,20 @@ exports.getTask = asyncHandler(async(req,res)=>{
     )
 })
 
+//get a selected label task
+exports.getLabelTasks = asyncHandler(async(req , res)=>{
+    const labelId = req.query.selectedLabelId;
+    const tasks = await Task.find({label:labelId})
+    if(tasks.lenght === 0){
+        return res.status(200).json(
+            new ApiResponse("there are no tasks for this label! " , null , 200)
+        )
+    }
+    return res.status(200).json(
+        new ApiResponse("the tasks are! " , tasks , 200)
+    )
+})
+
 //update Task
 exports.updateTask = asyncHandler(async(req,res)=>{
     const task = await Task.findByIdAndUpdate(req.params.taskId);
