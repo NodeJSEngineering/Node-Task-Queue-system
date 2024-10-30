@@ -23,7 +23,6 @@ const userSchema = new mongoose.Schema({
         type:String,
         enum:["Regularuser"  , "Admin"],
         default:"Regularuser",
-        required:true
     }
 });
 

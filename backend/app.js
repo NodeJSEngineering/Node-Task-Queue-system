@@ -23,7 +23,7 @@ const taskRoutes = require("./routes/task.routes");
 app.use("/api/v1/task" , taskRoutes);
 
 const requestTaskRoutes = require("./routes/requestTask.routes");
-app.use("/api/v1/requestTask" , requestTaskRoutes);
+app.use("/api/v1/requesttask" , requestTaskRoutes);
 
 const labelRoutes = require("./routes/label.routes");
 app.use("/api/v1/label" , labelRoutes);

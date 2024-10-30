@@ -12,8 +12,8 @@ const Token = (user)=>{
     }
 }
 exports.register = asyncHandler(async (req,res)=>{
-    const {name , email , password , role} = req.body;
-    if(!(name && email && password && role)){
+    const {name , email , password } = req.body;
+    if(!(name && email && password )){
         throw new ApiError(400 , "all fields are required");
     }
     const existUser = await User.findOne({$or:[{email} , {name}]});
@@ -24,7 +24,6 @@ exports.register = asyncHandler(async (req,res)=>{
         name,
         email,
         password,
-        role
     })
     if(!user){
         throw new ApiError(500 , "user is not created");
@@ -40,7 +39,7 @@ exports.register = asyncHandler(async (req,res)=>{
         secure:true
     }
     return res.status(201).cookie("accessToken" , accessToken , options).json(
-        new ApiResponse("user is created" , {user:user , accessToken} , 200)
+        new ApiResponse("user is created" , user , 200)
     )
 })
 
@@ -64,7 +63,7 @@ exports.login = asyncHandler(async(req,res)=>{
     }
     const accessToken = Token(user);
     return res.status(200).cookie("accessToken" , accessToken , options).json(
-        new ApiResponse("user is logedIn" , {user:user , accessToken} , 200)
+        new ApiResponse("user is logedIn" , user , 200)
     )
 })
 

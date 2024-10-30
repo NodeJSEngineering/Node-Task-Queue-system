@@ -7,7 +7,7 @@ const Task = require("../models/task.model");
 exports.newTask = asyncHandler(async(req,res)=>{
     const {name , user , description , label} = req.body;
     if(!(name && user && description && label)){
-        throw new ApiError(400 , "Task name is required");
+        throw new ApiError(400 , "all fields are required");
     }
     const existTask = await Task.findOne({$and:[{name} , {user}]});
     if(existTask){
@@ -49,6 +49,20 @@ exports.getTask = asyncHandler(async(req,res)=>{
     )
 })
 
+//get a selected label task
+exports.getLabelTasks = asyncHandler(async(req , res)=>{
+    const labelId = req.query.selectedLabelId;
+    const tasks = await Task.find({label:labelId})
+    if(tasks.lenght === 0){
+        return res.status(200).json(
+            new ApiResponse("there are no tasks for this label! " , null , 200)
+        )
+    }
+    return res.status(200).json(
+        new ApiResponse("the tasks are! " , tasks , 200)
+    )
+})
+
 //update Task
 exports.updateTask = asyncHandler(async(req,res)=>{
     const task = await Task.findByIdAndUpdate(req.params.taskId);
@@ -65,7 +79,7 @@ exports.updateTask = asyncHandler(async(req,res)=>{
 })
 
 //delete Task
-exports.deleteTask = asyncHandler(async()=>{
+exports.deleteTask = asyncHandler(async(req,res)=>{
     const task = await Task.findById(req.params.taskId);
     if(!task){
         throw new ApiError(404 , "task is not found");

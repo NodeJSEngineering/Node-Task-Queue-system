@@ -1,15 +1,18 @@
 
 import './App.css'
-import Nav from './components/navbar'
+import Navbar from "./components/Navbar"
+import { BrowserRouter as Router, Routes, Route, Outlet } from 'react-router-dom';
 import TaskQueue from './pages/AddTask'
+import Footer from './components/Footer';
 
 function App() {
 
 
   return (
     <>
-<Nav/>
-     <TaskQueue />
+     <Navbar/>
+     <Outlet/>
+     <Footer/>
     </>
   )
 }

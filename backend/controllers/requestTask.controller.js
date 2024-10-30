@@ -1,7 +1,7 @@
 const asyncHandler = require("../utils/asyncHandler");
 const ApiResponse = require("../utils/apiResponse");
 const ApiError = require("../utils/apiError");
-const RequestTask = require("../models/task.model");
+const RequestTask = require("../models/request.model");
 
 //create new RequestTask
 exports.newRequestTask = asyncHandler(async(req,res)=>{
@@ -39,7 +39,7 @@ exports.getAllRequestTask = asyncHandler(async(req,res)=>{
 
 //get RequestTask
 exports.getRequestTask = asyncHandler(async(req,res)=>{
-    const requestTask = await RequestTask.findById(req.params.RequestTaskId);
+    const requestTask = await RequestTask.findById(req.params.requestTaskId);
     if(!requestTask){
         throw new ApiError(404 , "RequestTask is not found");
     }
@@ -64,7 +64,7 @@ exports.updateRequestTask = asyncHandler(async(req,res)=>{
 })
 
 //delete RequestTask
-exports.deleteRequestTask = asyncHandler(async()=>{
+exports.deleteRequestTask = asyncHandler(async(req,res)=>{
     const requestTask = await RequestTask.findById(req.params.requestTaskId);
     if(!requestTask){
         throw new ApiError(404 , "RequestTask is not found");
