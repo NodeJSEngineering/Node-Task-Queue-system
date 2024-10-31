@@ -38,6 +38,21 @@ exports.getAllTask = asyncHandler(async(req,res)=>{
     )
 })
 
+//get All a specified user task
+
+exports.getAllUserTasks = asyncHandler(async(req,res)=>{
+    const {userId} = req.params;
+    const tasks = await Task.find({user:userId});
+    if(tasks.length === 0){
+        return res.status(200).json(
+            new ApiResponse("u have not created any task yet! " , null , 200)
+        )
+    }
+    return res.status(200).json(
+        new ApiResponse("ur tasks are! " , tasks , 200)
+    )
+})
+
 //get Task
 exports.getTask = asyncHandler(async(req,res)=>{
     const task = await Task.findById(req.params.taskId);
