@@ -41,7 +41,7 @@ exports.acceptRejectMail = async(userEmail , taskName , status = false)=>{
     const emailOptions = {
         from:"task queue system",
         to:userEmail,
-        subject:"A new User Request for Assign of Task",
+        subject:"Task Assignment Request Update",
         text:emailText
     }
     try {
