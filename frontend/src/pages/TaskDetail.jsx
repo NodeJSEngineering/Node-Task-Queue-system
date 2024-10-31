@@ -29,7 +29,8 @@ export default function TaskDetail(){
     const handleReuestTask = async(data)=>{
         try {
             const response = await postAndUpdateReq(`${baseurl}/requesttask/newrequesttask` , data , null , "post");
-            console.log("response from the server to request task! " , response)
+            console.log("response from the server to request task! " , response);
+            return response.data;
         } catch (error) {
             console.log("error from handle request task! " , error)
         }
