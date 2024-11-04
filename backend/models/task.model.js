@@ -24,7 +24,11 @@ const taskSchema = new mongoose.Schema({
     description:{
         type:String,
         required:true,
-    }
+    },
+    requests:[{
+        type:mongoose.Schema.Types.ObjectId,
+        ref:"RequestTask"
+    }]
 } , {timestamps:true})
 
 const Task = mongoose.model("Task" , taskSchema);

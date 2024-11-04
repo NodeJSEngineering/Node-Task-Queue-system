@@ -14,6 +14,7 @@ import NewTask from './pages/NewTask.jsx'
 import TaskDetail from './pages/TaskDetail.jsx'
 import PrivateRoute from './utils/UserAuthorization.jsx'
 import MyTasks from './pages/MyTasks.jsx'
+import RequestTask from './pages/RequestTask.jsx'
 
 
 const router = createBrowserRouter([
@@ -49,6 +50,10 @@ const router = createBrowserRouter([
       {
         path:"mytask",
         element:<PrivateRoute><MyTasks/></PrivateRoute>
+      },
+      {
+        path:"requesttask/:taskId",
+        element:<PrivateRoute><RequestTask/></PrivateRoute>
       }
     ]
   },

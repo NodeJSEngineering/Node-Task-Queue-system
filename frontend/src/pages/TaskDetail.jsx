@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom"
-import { baseurl, getAndDeleteReq } from "../utils/apiCalls";
+import { baseurl, getAndDeleteReq, postAndUpdateReq } from "../utils/apiCalls";
 
 export default function TaskDetail(){
     const {taskId} = useParams();
@@ -17,7 +17,26 @@ export default function TaskDetail(){
         }
         getTask();
     } , [taskId])
-    console.log("task id from use params! " , taskId);
+
+    const user = JSON.parse(sessionStorage.getItem("User"));
+
+    const [taskRequest , setTaskRequest] = useState({
+        task:taskId ? taskId : null,
+        requestedUser:user ? user._id : null,
+        description:""
+    });
+
+    const handleReuestTask = async(data)=>{
+        try {
+            const response = await postAndUpdateReq(`${baseurl}/requesttask/newrequesttask` , data , null , "post");
+            console.log("response from the server to request task! " , response);
+            return response.data;
+        } catch (error) {
+            console.log("error from handle request task! " , error)
+        }
+    }
+    // console.log("task request is! " , taskRequest);
+    // console.log("task id from use params! " , taskId);
     return (
        <>
        <div className="max-w-lg mx-auto p-6 shadow-2xl bg-white-900 rounded-md mt-8 text-center">
@@ -38,10 +57,14 @@ export default function TaskDetail(){
             <div className="text-left">
                 <span className="font-semibold text-lg px-2 py-2">Task Owner :</span>
                 <span className="font-semibold text-lg py-2">Owner</span>
-            </div>
+            </div><br/><br/>
+
+            <p>To make A Request To This Task You Need To Add Description</p><br/>
+            <textarea type="text" placeholder="description for the task request!" required className="my-2 outline-none bg-slate-600 rounded w-full focus:outline-none focus: px-2 py-4" 
+            rows={15} onChange={(e)=>setTaskRequest({...taskRequest , description:e.target.value})}></textarea>
             <button 
             className="text-gray-700 mt-5 bg-orange-500 hover:bg-orange-700 hover:transition-colors 
-            px-5 py-3 rounded mx-2">Request Request</button>
+            px-5 py-3 rounded mx-2" onClick={()=>(handleReuestTask(taskRequest))}>Request</button>
        </div>
        </>
     )
