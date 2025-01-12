@@ -13,6 +13,8 @@ app.use(cors({
     origin:true,
     credentials:true
 }));
+
+// Cookie-parser middleware is used to parse the cookies that are attached to the request made by the client to the server
 app.use(cookieParser());
 
 //routes import

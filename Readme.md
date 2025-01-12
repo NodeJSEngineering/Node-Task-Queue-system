@@ -1,96 +1,135 @@
+# My Awesome YouTube Channel
 
-# Node-Task-Queue-System
+Welcome to my YouTube channel! 🎉 In this channel, I share exciting content related to web development. Whether you're interested in Angular, Javascript, or Productivity tips, you'll find something valuable here.
+[YouTube Channel](http://youtube.com/@neweraofcoding)
 
-**Node-Task-Queue-System** is a basic task queue system built with Node.js. It allows users to add tasks to a queue and process them one by one. This project is ideal for understanding the basics of handling asynchronous tasks in a web application.
+## About Me
 
-## Table of Contents
+I'm Sam, and I'm passionate about product engineering and web development. I create videos that will help you learn web development.
 
-- [Features](#features)
-- [Technologies](#technologies)
-- [Installation](#installation)
-- [Usage](#usage)
-- [Project Structure](#project-structure)
-- [API Endpoints](#api-endpoints)
-- [Contributing](#contributing)
+## What You'll Find Here
 
-## Features
+- **[ Angular ]**: [Learn the fundamentals. I explained everything you need to get started with this JavaScript framework written in TypeScript. It is the web development framework for building the future. works at any scale. Loved by millions. Build for everyone.  open-source framework for building single-page client applications using HTML and TypeScript.]
+- **[ Javascript ]**: [JavaScript is a powerful programming language that can add interactivity to a website. JavaScript is easy to learn. It's the foundation of frontend web development.]
+- **[ Career Tips ]**: [self-assessment, goal setting, action planning, implementation, and refinement. By following these steps, you can develop a road map for achieving your career goals. Tips to improve your career development. Cultivating a beginner's mindset is a critical part of career growth. critical part of your professional growth.]
+- **[ Common Errors ]**: [Mistakes to Avoid in Software Development Projects.]
+- **[ Development Tools ]**: [Top Software Development Tools List.]
+- **[ Typescript ]**: [TypeScript extends JavaScript by adding types to the language. TypeScript speeds up your development experience by catching errors. TypeScript can help enhance and improve your web development projects.]
+- **[ Git & GitHub ]**: [GitHub is where over 100 million developers shape the future of software together. Contribute to the open-source community and manage Git repositories. This practical guide gets you to jump right into using GitHub, learning the basics of Git. Git and GitHub are two of the most essential tools in the world of software development.]
+- **[ Video Conferencing Tool ]**: [Unlock the potential of video conferencing software development. Dive into our guide for insights on key features and cost factors.  If you're looking to integrate video communication into your app or planning to build a video streaming/conference app from scratch, create a fully customized audio & video conferencing app.]
 
-- **Task Queueing**: Users can add tasks to a queue, which are processed one at a time.
-- **Task Management**: Track task status (pending, processing, completed).
-- **Basic Error Handling**: If a task fails, it's marked as failed.
 
-## Technologies
+### About the app
+react frontend
 
-- **Node.js**: Server-side runtime for handling asynchronous tasks.
-- **Express**: Web framework for building RESTful APIs.
-- **In-Memory Queue**: Simple queue implemented using in-memory data structures (arrays).
+### useful commands to run project
 
-## Installation
+### Packages used
 
-1. **Clone the Repository**
-   ```bash
-   git clone https://github.com/username/Node-Task-Queue-System.git
-   cd Node-Task-Queue-System
-   ```
+### Useful Links
 
-2. **Install Dependencies**
-   ```bash
-   npm install
-   ```
+## Subscribe and Stay Updated!
 
-3. **Start the Application**
-   ```bash
-   npm start
-   ```
+Don't miss out on new videos! Subscribe to my channel and hit the notification bell 🔔 to receive updates whenever I upload fresh content. Let's learn, laugh, and explore together!
 
-4. **Access the Application**
-   The server will be running on `http://localhost:3000`.
+[!Subscribe to My Channel](http://youtube.com/@neweraofcoding)
 
-## Usage
+## Connect with Me
 
-### Adding Tasks
-You can add tasks to the queue via a POST request to `/tasks`. Tasks will be processed in the order they are received.
+- **YouTube**: [YouTube Channel Link](http://youtube.com/@neweraofcoding)
+- **Facebook**: [Facebook Page Link](https://www.facebook.com/learnangular2plus/)
+- **Instagram**: [Instagram Page Link](https://www.instagram.com/angular_development/)
 
-Example:
-```bash
-curl -X POST http://localhost:3000/tasks -H "Content-Type: application/json" -d '{"task": "Send email to user"}'
+Feel free to reach out, comment on videos, and share your thoughts. I appreciate your support! 🙌
+
+## License
+
+This project is licensed under the MIT License.
+
+---
+
+If you have any questions or need further assistance, feel free to ask! 🚀
+
+##  Steps to contribute and generate PR(pull request)
+
+ ###  clone the repository
+clone the forked repository to your system. Go to your GitHub account, open the forked repository, click on the code button and then clone the repository.
+If you want to use the terminal, use the following commands after you fork the repository, open the terminal type the given command
 ```
-
-### Monitoring Tasks
-You can view the current status of tasks by making a GET request to `/tasks`.
-
-Example:
-```bash
-curl http://localhost:3000/tasks
+git clone repo url
 ```
+### create a branch
+ create a branch on your local repository to solve a problem.
 
-## Project Structure
-
-```bash
-.
-├── controllers
-│   └── taskController.js # Logic for handling task queue operations
-├── routes
-│   └── taskRoutes.js     # API routes for task management
-├── app.js                # Main application entry point
-├── package.json          # Project metadata and dependencies
-└── README.md             # Project documentation
+Terminal commands
 ```
+git checkout -b your_new_branch_name
+```   
+###   add & commit
+add your changes(folder) to that branch.
+Make necessary changes and commit those changes. Terminal commands
+```
+git add .
+git commit -m "your-commit-message"
+```
+### push changes to github
+finally, push your local repository to the remote repository compare & submit a pull request
 
-## API Endpoints
+terminal commands
+```
+git push origin 
+```
+Go to your repository on GitHub, you'll see a compare & pull request button. Click on that button.
 
-- **POST** `/tasks`
-  - Add a new task to the queue.
-  - **Request Body**:
-    ```json
-    {
-      "task": "Some task description"
-    }
-    ```
+Now submit the pull request.
+   
+For quick approval of the pull request, reach out to me on the mentioned social media channels.
+```bash
 
-- **GET** `/tasks`
-  - Get the current list of tasks and their statuses.
 
-## Contributing
 
-Contributions are welcome! Feel free to open an issue or submit a pull request.
+ _____ _                 _     __   __            
+|_   _| |               | |    \ \ / /            
+  | | | |__   __ _ _ __ | | __  \ V /___  _   _   
+  | | | '_ \ / _` | '_ \| |/ /   \ // _ \| | | |  
+  | | | | | | (_| | | | |   <    | | (_) | |_| |  
+  \_/ |_| |_|\__,_|_| |_|_|\_\   \_/\___/ \__,_|  
+                                                  
+                                                  
+______                                            
+|  ___|                                           
+| |_ ___  _ __                                    
+|  _/ _ \| '__|                                   
+| || (_) | |                                      
+\_| \___/|_|                                      
+                                                  
+                                                  
+______      _               _   _               _ 
+| ___ \    (_)             | | | |             | |
+| |_/ / ___ _ _ __   __ _  | |_| | ___ _ __ ___| |
+| ___ \/ _ \ | '_ \ / _` | |  _  |/ _ \ '__/ _ \ |
+| |_/ /  __/ | | | | (_| | | | | |  __/ | |  __/_|
+\____/ \___|_|_| |_|\__, | \_| |_/\___|_|  \___(_)
+                     __/ |                        
+                    |___/                         
+
+ 
+
+
+```
+---------
+```javascript
+
+if (youEnjoyed) {
+ //  (star ⭐ & fork 🍽️) this repository.
+ // - Fork this repository by clicking on the fork button at the top of this page. This will create a copy of this repository in your account.
+    starThisRepository();
+}
+
+```
+---------
+happy coding fellas!!💕✨
+-----------
+ 
+
+
