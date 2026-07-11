@@ -19,8 +19,90 @@ I'm Sam, and I'm passionate about product engineering and web development. I cre
 - **[ Video Conferencing Tool ]**: [Unlock the potential of video conferencing software development. Dive into our guide for insights on key features and cost factors.  If you're looking to integrate video communication into your app or planning to build a video streaming/conference app from scratch, create a fully customized audio & video conferencing app.]
 
 
-### About the app
-react frontend
+### About the app Node-Task-Queue-System
+**Node-Task-Queue-System** is a basic task queue system built with Node.js. It allows users to add tasks to a queue and process them one by one. This project is ideal for understanding the basics of handling asynchronous tasks in a web application.
+
+## Features
+
+- **Task Queueing**: Users can add tasks to a queue, which are processed one at a time.
+- **Task Management**: Track task status (pending, processing, completed).
+- **Basic Error Handling**: If a task fails, it's marked as failed.
+
+## Technologies
+
+- **Node.js**: Server-side runtime for handling asynchronous tasks.
+- **Express**: Web framework for building RESTful APIs.
+- **In-Memory Queue**: Simple queue implemented using in-memory data structures (arrays).
+
+## Installation
+
+1. **Clone the Repository**
+   ```bash
+   git clone https://github.com/username/Node-Task-Queue-System.git
+   cd Node-Task-Queue-System
+   ```
+used nodemailer here
+mongodb://127.0.0.1:27017/your_database_name
+mongodb+srv://<username>:<password>@cluster0.xxxx.mongodb.net/your_database_name If using MongoDB Atlas (In the cloud)
+if you does not have db just pass this default string
+2. **Install Dependencies**
+   ```bash
+   npm install
+   ```
+
+3. **Start the Application**
+   ```bash
+   npm start
+   ```
+
+4. **Access the Application**
+   The server will be running on `http://localhost:3000`.
+
+## Usage
+
+### Adding Tasks
+You can add tasks to the queue via a POST request to `/tasks`. Tasks will be processed in the order they are received.
+
+Example:
+```bash
+curl -X POST http://localhost:3000/tasks -H "Content-Type: application/json" -d '{"task": "Send email to user"}'
+```
+
+### Monitoring Tasks
+You can view the current status of tasks by making a GET request to `/tasks`.
+
+Example:
+```bash
+curl http://localhost:3000/tasks
+```
+
+## Project Structure
+
+```bash
+.
+├── controllers
+│   └── taskController.js # Logic for handling task queue operations
+├── routes
+│   └── taskRoutes.js     # API routes for task management
+├── app.js                # Main application entry point
+├── package.json          # Project metadata and dependencies
+└── README.md             # Project documentation
+```
+
+## API Endpoints
+
+- **POST** `/tasks`
+  - Add a new task to the queue.
+  - **Request Body**:
+    ```json
+    {
+      "task": "Some task description"
+    }
+    ```
+
+- **GET** `/tasks`
+  - Get the current list of tasks and their statuses.
+
 
 ### useful commands to run project
 
